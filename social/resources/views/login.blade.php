@@ -16,7 +16,7 @@
                             </ul>
                         </div>
                     @endif
-                        <form role="form" method="post">
+                        <form role="form"  method="POST" action="/login">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
@@ -30,7 +30,9 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="{{ url ('/login') }}" class="btn btn-lg btn-success btn-block">Login</a>
+                                <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                                    Login
+                                </button>
                             </fieldset>
                         </form>
                     

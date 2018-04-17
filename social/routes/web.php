@@ -68,9 +68,13 @@ Route::get('/blank', function()
 	return View::make('blank');
 });
 
-Route::get('/login', 'Auth\LoginController@showLoginForm');
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
 Route::post('/login', 'Auth\LoginController@login');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('/documentation', function()
 {

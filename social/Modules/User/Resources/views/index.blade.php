@@ -1,6 +1,6 @@
 @extends('user::layouts.master')
 
-@section('content')
+@section('section')
     <h1>Hello World</h1>
 
     <p>
