@@ -68,12 +68,14 @@ Route::get('/blank', function()
 	return View::make('blank');
 });
 
-Route::get('/login', function()
-{
-	return View::make('login');
-});
+Route::get('/login', 'Auth\LoginController@showLoginForm');
+
+Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/documentation', function()
 {
 	return View::make('documentation');
 });
+
+
+Route::get('/home', 'HomeController@index')->name('home');
