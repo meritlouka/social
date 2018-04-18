@@ -55,7 +55,7 @@ class RegisterController extends Controller
         ]);
     }
     public function showRegisterForm(){
-        return view('auth.register'); 
+        return view('register'); 
     }
     /**
      * Create a new user instance after a valid registration.
@@ -66,10 +66,11 @@ class RegisterController extends Controller
     protected function register(Request $request)
     { 
         $data = $request->all(); 
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+         return view('login'); 
     }
 }

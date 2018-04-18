@@ -62,5 +62,10 @@ class LoginController extends Controller
             echo 'wrong';
         }
     }
-
+    public function logout()
+    {
+        # code...
+       Auth::logout(); 
+       return view('login');
+    }
 }
