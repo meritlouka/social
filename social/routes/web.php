@@ -76,6 +76,8 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
+Route::get('/register', 'Auth\RegisterController@showRegisterForm');
+
 Route::get('/documentation', function()
 {
 	return View::make('documentation');

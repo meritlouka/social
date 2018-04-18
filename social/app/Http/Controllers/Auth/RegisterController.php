@@ -6,7 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     /*
@@ -19,6 +19,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+   
 
     use RegistersUsers;
 
@@ -53,15 +54,18 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
-
+    public function showRegisterForm(){
+        return view('auth.register'); 
+    }
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
+    protected function register(Request $request)
+    { 
+        $data = $request->all(); 
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
