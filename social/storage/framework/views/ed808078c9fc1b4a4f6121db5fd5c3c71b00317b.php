@@ -11,11 +11,11 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
 	<meta content="" name="description"/>
 	<meta content="" name="author"/>
-     <link href="{{ asset('assets/stylesheets/main.css') }}" rel="stylesheet">
-	<link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}" />
+     <link href="<?php echo e(asset('assets/stylesheets/main.css')); ?>" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo e(asset("assets/stylesheets/styles.css")); ?>" />
 </head>
 <body>
-	@yield('body')
-	<script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
+	<?php echo $__env->yieldContent('body'); ?>
+	<script src="<?php echo e(asset("assets/scripts/frontend.js")); ?>" type="text/javascript"></script>
 </body>
 </html>

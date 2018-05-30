@@ -31,13 +31,37 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param  Request $request
+     *
      * @return Response
      */
-    public function store(Request $request)
+    public function store()
     {
-    }
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'title'       => 'required',
+            'content'      => 'required',
+           
+        );
+        $validator = \Validator::make(\Input::all(), $rules);
 
+        // process the login
+        if ($validator->fails()) {
+            return \Redirect::to('post/create')
+                ->withErrors($validator)
+               ;
+        } else {
+            // store
+            $post = new Post;
+            $post->title       = \Input::get('title');
+            $post->content      = \Input::get('content');
+            $post->save();
+
+            // redirect
+            \Session::flash('message', 'Successfully created post!');
+            return \Redirect::to('post');
+        }
+    }
     /**
      * Show the specified resource.
      * @return Response
