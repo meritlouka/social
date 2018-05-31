@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Post\Entities\Post;
-
+use Modules\Post\Services\PostFacade;
 class PostController extends Controller
 {
     /**
@@ -15,6 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        dd(PostFacade::createPost());
         $posts = Post::orderBy('id', 'asc')->get();
 
         return view('post::index', ['posts' => $posts]);

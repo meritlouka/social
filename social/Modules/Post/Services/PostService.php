@@ -1,12 +1,14 @@
-<?php namespace Services\Pokemon;
-use App\Modules\User\Repositories\IUserRepository;
+<?php 
+namespace Modules\Post\Services;
+
+use Modules\Post\Repositories\IPostRepository;
 /**
 * Our PokemonService, containing all useful methods for business logic around Pokemon
 */
-class UserService
+class PostService
 {
     // Containing our pokemonRepository to make all our database calls to
-    protected $userRepo;
+    protected $postRepo;
     
     /**
     * Loads our $pokemonRepo with the actual Repo associated with our pokemonInterface
@@ -14,9 +16,9 @@ class UserService
     * @param pokemonInterface $pokemonRepo
     * @return PokemonService
     */
-    public function __construct(IUserRepository $userRepo)
+    public function __construct(IPostRepository $postRepo)
     {
-        $this->userRepo = $userRepo;
+        $this->postRepo = $postRepo;
     }
     /**
     * Method to get pokemon based either on name or ID
@@ -24,26 +26,9 @@ class UserService
     * @param mixed $pokemon
     * @return string
     */
-    public function getPokemon($pokemon)
+    public function createPost()
     {
-        // If pokemon variable is numeric, assume ID
-        if (is_numeric($pokemon))
-        {
-            // Get pokemon based on ID
-            $pokemon = $this->pokemonRepo->getPokemonById($pokemon);
-        }
-        else 
-        {
-            // Since not numeric, lets try get the pokemon based on Name
-            $pokemon = $this->pokemonRepo->getPokemonByName($pokemon);
-        }
         
-        // If Eloquent Object returned (rather than null) return the name of the pokemon
-        if ($pokemon != null)
-        {
-            return $pokemon->name;
-        }
-        // If nothing found, return this simple string
-        return 'Pokemon Not Found';
+        return 'success';
     }
 }

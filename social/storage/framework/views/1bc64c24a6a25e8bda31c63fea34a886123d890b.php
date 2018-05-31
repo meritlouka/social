@@ -1,5 +1,5 @@
 <?php $__env->startSection('section'); ?>
-<nav class="navbar navbar-inverse ">
+<nav class="navbar green-color">
     <div class="navbar-header">
         <a class="navbar-brand" href="<?php echo e(URL::to('posts')); ?>">Post Alert</a>
     </div>

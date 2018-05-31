@@ -4,6 +4,9 @@ namespace Modules\Post\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Post\Services\PostService;
+use Modules\Post\Repositories\IPostRepository;
+use  Modules\Post\Entites\Post;
 
 class PostServiceProvider extends ServiceProvider
 {
@@ -35,7 +38,21 @@ class PostServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Bind the returned class to the namespace 'Repositories\PokemonInterface
+        $this->app->bind('IPostRepository', function($app)
+        {
+            return new PostRepository(new Post());
+         });
+
+        // Binds 'pokemonService' to the result of the closure
+        $this->app->bind("PostService", function($app)
+        {
+            return new PostService(
+                // Inject in our class of pokemonInterface, this will be our repository
+                $app->make( 'Modules\Post\Repositories\IPostRepository')
+            );
+        });
+
     }
 
     /**

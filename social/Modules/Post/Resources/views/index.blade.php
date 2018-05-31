@@ -1,7 +1,7 @@
 @extends('post::layouts.master')
 
 @section('section')
-<nav class="navbar navbar-inverse ">
+<nav class="navbar green-color">
     <div class="navbar-header">
         <a class="navbar-brand" href="{{ URL::to('posts') }}">Post Alert</a>
     </div>

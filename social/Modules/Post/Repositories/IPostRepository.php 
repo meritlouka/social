@@ -1,7 +1,7 @@
 <?php
-namespace App\Modules\Repositories\UserRepository;
+namespace Modules\Post\Repositories;
 
-interface IUserRepository {
+interface IPostRepository {
     
     public function getAllUsers();
  
