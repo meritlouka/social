@@ -1,7 +1,7 @@
 <?php 
 namespace Modules\Post\Services;
 
-use Modules\Post\Repositories\IPostRepository;
+use Modules\Post\Repositories\PostRepositoryInterface;
 /**
 * Our PokemonService, containing all useful methods for business logic around Pokemon
 */
@@ -16,7 +16,7 @@ class PostService
     * @param pokemonInterface $pokemonRepo
     * @return PokemonService
     */
-    public function __construct(IPostRepository $postRepo)
+    public function __construct(PostRepositoryInterface $postRepo)
     {
         $this->postRepo = $postRepo;
     }

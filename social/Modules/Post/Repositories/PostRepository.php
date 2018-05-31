@@ -1,8 +1,10 @@
 <?php
 namespace Modules\Post\Repositories;
-use  Modules\Post\Entites\Post;
 
-class PostRepository implements IPostRepository {
+use  Modules\Post\Entites\Post;
+use  Modules\Post\Repositories\PostRepositoryInterface;
+
+class PostRepository implements PostRepositoryInterface {
  
     public function getAllUsers()
     {
